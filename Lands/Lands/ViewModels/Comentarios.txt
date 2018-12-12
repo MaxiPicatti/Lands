@@ -1,0 +1,2 @@
+﻿En la carpeta VIEWMODELS vamos a poner la mayor parte de la logica del codigo, controladores principalmente.
+n the folder VIEWMODELS we will put most of the logic of the code, mainly drivers.

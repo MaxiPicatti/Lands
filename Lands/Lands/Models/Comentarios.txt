@@ -1,0 +1,2 @@
+﻿En la carpeta Models vamos a poner principalmente la representacion de los modelos que va a manipular nuestra app, los objetos.
+In the Models folder we are going to put mainly the representation of the models that will manipulate our app, the objects.

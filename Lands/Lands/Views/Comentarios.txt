@@ -1,0 +1,3 @@
+﻿En la carpeta VIEWS vamos a ingresar todo lo que el usuario va a ver.
+In the VIEWS folder we will enter everything the user will see.
+

@@ -18,6 +18,9 @@
                     WidthRequest="200"
                     Source="onu">
                 </Image>
+                <ActivityIndicator>
+
+                </ActivityIndicator>
                 <Grid
                     Margin="0,20">
                     <Grid.ColumnDefinitions>
@@ -48,10 +51,7 @@
                     </Entry>
                 </Grid>
                 <StackLayout
-                    Orientation="Horizontal">
-                    <ActivityIndicator>
-
-                    </ActivityIndicator>
+                    Orientation="Horizontal">                   
                     <Label
                         Text="Remember me on this device"
                         VerticalOptions="Center"

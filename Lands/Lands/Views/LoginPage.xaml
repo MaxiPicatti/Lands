@@ -3,17 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Login">
+             Title="Lands">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
-                Padding="10">
-                <Label 
-                    FontAttributes="Bold"
-                    FontSize="Large"
-                    HorizontalOptions="Center"
-                    Text="Lands">
-                </Label>
+                Padding="5">                
                 <Image
                     WidthRequest="200"
                     Source="onu">
@@ -22,7 +16,7 @@
 
                 </ActivityIndicator>
                 <Grid
-                    Margin="0,20">
+                    Margin="10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
@@ -30,7 +24,8 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
-                        Text="E-Mail">
+                        Text="E-Mail"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
                         Grid.Row="0"
@@ -41,7 +36,8 @@
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
-                        Text="Password">
+                        Text="Password"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
                         Grid.Row="1"
@@ -51,13 +47,14 @@
                     </Entry>
                 </Grid>
                 <StackLayout
+                    Margin="10,0"
                     Orientation="Horizontal">                   
                     <Label
                         Text="Remember me on this device"
                         VerticalOptions="Center"
                         HorizontalOptions="StartAndExpand">
                     </Label>
-                    <Switch 
+                    <Switch                         
                         HorizontalOptions="End">
                     </Switch>
                 </StackLayout>
@@ -67,20 +64,23 @@
                     TextColor="Blue">                    
                 </Label>
                 <StackLayout
-                    Margin="40,0">
+                    Margin="40,0"
+                    Orientation="Horizontal">
                     <Button                
                         Text="Login"
                         BackgroundColor="Navy"
                         TextColor="White"
                         BorderRadius="23"
-                        HeightRequest="46">
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand">
                     </Button>
                     <Button                
                         Text="Register"
                         BackgroundColor="Purple"
                         TextColor="White"
                         BorderRadius="23"
-                        HeightRequest="46">
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand">
                     </Button>
                 </StackLayout>
                 <StackLayout

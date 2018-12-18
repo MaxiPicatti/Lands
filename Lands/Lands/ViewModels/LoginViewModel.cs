@@ -1,13 +1,75 @@
 ﻿namespace Lands.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
+    using System;
+    using System.ComponentModel;
     using System.Windows.Input;
-    public class LoginViewModel
+    using Xamarin.Forms;
+
+    public class LoginViewModel : INotifyPropertyChanged
     {
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+        #region Attributes
+        private string password;
+        private bool isRunning;
+        private bool isEnabled;
+        #endregion
+
+
         #region Properties
         public string Email { get; set; }
-        public string Password { get; set; }
-        public bool Isrunning { get; set; }
+        public string Password
+        {
+            get
+            {
+                return this.password;
+            }
+            set
+            {
+                if (this.password != value)
+                {
+                    this.password = value;
+                    PropertyChanged?.Invoke(
+                        this, new PropertyChangedEventArgs(nameof(this.Password)));
+                }
+            }
+        }
+        public bool IsRunning
+        {
+            get
+            {
+                return this.isRunning;
+            }
+            set
+            {
+                if (this.isRunning != value)
+                {
+                    this.isRunning = value;
+                    PropertyChanged?.Invoke(
+                        this, new PropertyChangedEventArgs(nameof(this.IsRunning)));
+                }
+            }
+        }
         public bool IsRemembered { get; set; }
+        public bool IsEnabled
+        {
+            get
+            {
+                return this.isEnabled;
+            }
+            set
+            {
+                if (this.isEnabled != value)
+                {
+                    this.isEnabled = value;
+                    PropertyChanged?.Invoke(
+                        this, new PropertyChangedEventArgs(nameof(this.IsEnabled)));
+                }
+            }
+        }
 
         #endregion
 
@@ -15,12 +77,65 @@
         public LoginViewModel()
         {
             this.IsRemembered = true;
+            this.IsEnabled = true;
         }
         #endregion
 
         #region Commands
-        public ICommand LoginCommand { get; set; }
+        public ICommand LoginCommand
+        {
+            get
+            {
+                return new RelayCommand(Login);
+            }
+        }
+
+        private async void Login()
+        {
+            if (string.IsNullOrEmpty(this.Email))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "You must enter an email.",
+                    "Accept");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.Password))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "You must enter an password.",
+                    "Accept");
+                return;
+            }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+
+            if (this.Email != "MP@gmail.com" || this.Password != "1234")
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   "Email or password incorrect.",
+                   "Accept");
+
+                this.Password = string.Empty;
+                return;
+            }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            await Application.Current.MainPage.DisplayAlert(
+                   "Ok",
+                   "Fuck Yeah...",
+                   "Accept");
+        }
         #endregion
-        
+
     }
 }

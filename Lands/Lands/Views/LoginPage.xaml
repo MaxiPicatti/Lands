@@ -5,7 +5,8 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Lands">
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView
+            BindingContext="{Binding Login}">
             <StackLayout
                 Padding="5">                
                 <Image
@@ -13,7 +14,8 @@
                     Source="onu">
                 </Image>
                 <ActivityIndicator
-                    VerticalOptions="CenterAndExpand">
+                    VerticalOptions="CenterAndExpand"
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
                 </ActivityIndicator>
                 <Grid
                     Margin="10,0"
@@ -32,7 +34,8 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         Keyboard="Email"
-                        Placeholder="Enter your Email...">
+                        Placeholder="Enter your Email..."
+                        Text="{Binding Email, Mode=TwoWay}">
                     </Entry>
                     <Label
                         Grid.Row="1"
@@ -44,7 +47,8 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         IsPassword="True"
-                        Placeholder="Enter your password...">
+                        Placeholder="Enter your password..."
+                        Text="{Binding Password, Mode=TwoWay}">
                     </Entry>
                 </Grid>
                 <StackLayout
@@ -57,7 +61,8 @@
                         HorizontalOptions="StartAndExpand">
                     </Label>
                     <Switch                         
-                        HorizontalOptions="End">
+                        HorizontalOptions="End"
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}">
                     </Switch>
                 </StackLayout>
                 <Label
@@ -76,7 +81,8 @@
                         TextColor="White"
                         BorderRadius="23"
                         HeightRequest="46"
-                        HorizontalOptions="FillAndExpand">
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding LoginCommand}">
                     </Button>
                     <Button                
                         Text="Register"

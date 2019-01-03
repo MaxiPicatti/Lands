@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lands.Views.LoginPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Lands">
+             Title="Login">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Login}">
@@ -83,7 +83,7 @@
                         HeightRequest="46"
                         HorizontalOptions="FillAndExpand"
                         Command="{Binding LoginCommand}"
-                        IsEnabled="{Binding isEnable, Mode=TwoWay}">
+                        IsEnabled="{Binding IsEnable, Mode=TwoWay}">
                     </Button>
                     <Button                
                         Text="Register"
@@ -92,7 +92,7 @@
                         BorderRadius="23"
                         HeightRequest="46"
                         HorizontalOptions="FillAndExpand"
-                        IsEnabled="{Binding isEnable, Mode=TwoWay}">
+                        IsEnabled="{Binding IsEnable, Mode=TwoWay}">
                     </Button>
                 </StackLayout>
                 <StackLayout
